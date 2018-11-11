@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="{% static  "/plugins/jquery-3.3.1/jquery-3.3.1.js" %}"></script>
+    <script src="{% static '/plugins/bootstrap-3.3.7/js/bootstrap.js' %}"></script>
+    <script src="{% static '/js/home.js' %}"></script>
+    <script src="{% static '/js/utils.js' %}"></script>
+
+    <link href="{% static '/plugins/bootstrap-3.3.7/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/css/home.css' %}" rel="stylesheet">
+
+    <title>Home</title>
+    <style>
+        html{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #b7dbff75;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body>
+{#顶部导航栏#}
+<nav class="navbar navbar-default" role="navigation">
+    <div class=" wpr-navbar container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">欢迎</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li id="nav_notify"><a href="#">通知</a></li>
+            <li id="nav_login"><a href="#">登陆</a></li>
+            <li id="nav_regist"><a href="#">注册</a></li>
+        </ul>
+    </div>
+</nav>
+{#左侧导航栏#}
+<div id="left">
+    <div id="left_top">
+
+        <div style="margin-top: 20px;margin-bottom: 20px">
+            <table>
+                <tr>
+                    <td align="left"><img src="{% static "image/icon.png" %}"></td>
+                    <td><span id="user_name">admin</span><br><span id="user_type" style="font-size: 10px">admin</span>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <ul>
+        <li id="li_trackSearch" class=" left-li-item"><img src="{% static "image/icon.png" %}"/>轨迹统计<img src="{% static "image/icon.png" %}"
+                                                                                     style="float: right;"/></li>
+        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>2</li>
+        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>3</li>
+        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>4</li>
+{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>5</li>#}
+{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>6</li>#}
+{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>7</li>#}
+{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>8</li>#}
+{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>9</li>#}
+    </ul>
+</div>
+<div id="left_expand" style="opacity: 0;">
+    <img src="{% static "image/icon.png" %}" alt="展开">
+</div>
+
+{#内容#}
+<div id="content">
+<iframe src="/record/main" style="height:100%;width: 100%;border: 0;"></iframe>
+</div>
+
+{#底部状态栏#}
+<div id="bottom">
+    <div style="line-height: 25px;margin-left: 10px"><img src="{% static "image/loading.gif" %}"
+                                                          style="line-height: 25px;height: 13px;width: 13px"><span
+            id="status_text">数据加载中...</span>
+    </div>
+</div>
+</body>
+</html>
