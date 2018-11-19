@@ -8,16 +8,21 @@
     <script src="{% static '/js/home.js' %}"></script>
     <script src="{% static '/js/utils.js' %}"></script>
 
+    {#    百度地图js库#}
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=stpRRyX7SAHNnGf66q1szUzlVqGTxTAu"
+            type="text/javascript"></script>
+
     <link href="{% static '/plugins/bootstrap-3.3.7/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static '/css/home.css' %}" rel="stylesheet">
 
     <title>Home</title>
     <style>
-        html{
+        html {
             height: 100%;
             margin: 0;
             padding: 0;
         }
+
         body {
             background-color: #b7dbff75;
             height: 100%;
@@ -42,41 +47,24 @@
         </ul>
     </div>
 </nav>
-{#左侧导航栏#}
-<div id="left">
-    <div id="left_top">
 
-        <div style="margin-top: 20px;margin-bottom: 20px">
-            <table>
-                <tr>
-                    <td align="left"><img src="{% static "image/icon.png" %}"></td>
-                    <td><span id="user_name">admin</span><br><span id="user_type" style="font-size: 10px">admin</span>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
-    <ul>
-        <li id="li_trackSearch" class=" left-li-item"><img src="{% static "image/icon.png" %}"/>轨迹统计<img src="{% static "image/icon.png" %}"
-                                                                                     style="float: right;"/></li>
-        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>2</li>
-        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>3</li>
-        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>4</li>
-{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>5</li>#}
-{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>6</li>#}
-{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>7</li>#}
-{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>8</li>#}
-{#        <li class="left-li-item"><img src="{% static "image/icon.png" %}"/>9</li>#}
-    </ul>
-</div>
 <div id="left_expand" style="opacity: 0;">
     <img src="{% static "image/icon.png" %}" alt="展开">
 </div>
 
 {#内容#}
 <div id="content">
-<iframe src="/record/main" style="height:100%;width: 100%;border: 0;"></iframe>
+    <div style="height: 750px">
+        <div style="height: 80%">
+            <div style="width: 20%;border: 1px solid red;height:100%;float: left;">数据展示</div>
+            <div style="border: 1px solid green;width: 59%;height:100%; float: left;margin-left: 0.5%">
+                <div id="mapContainer" style="width: 100%;height: 100%;"></div>
+            </div>
+            <div style="border: 1px solid yellow;width: 20%; height:100%;float: left;margin-left: 0.5%">点展示</div>
+        </div>
+        <div style="height: 44%;width: 100%;border: solid black;margin-top: 0.5%">统计信息</div>
+    </div>
+
 </div>
 
 {#底部状态栏#}
