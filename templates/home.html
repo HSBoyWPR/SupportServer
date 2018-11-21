@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                         {% for t in track_list %}
-                            <tr>
+                            <tr >
                                 <td>{{ t.name }}</td>
                                 <td>{{ t.date }}</td>
 
@@ -78,7 +78,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div style="height: 40% ;border: 1px solid green">
+                <div style="height: 40% ;border: 1px solid green;overflow:auto;">
                     <table id="track_attr" class="table table-border table-hover">
                         <thead>
                         <tr>
@@ -89,8 +89,18 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {%  for item in trackPoint_default %}
 
+                            <tr>
+                             <td>{{ forloop.counter}}</td>
+                                <td>{{ item.longitude }}</td>
+                                <td>{{ item.latitude }}</td>
+                                <td>{{ item.accurary }}</td>
+                                <td>{{ item.date|date:'Y-m-d H:m:s' }}</td>
 
+                            </tr>
+
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

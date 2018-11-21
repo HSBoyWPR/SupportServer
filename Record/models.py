@@ -17,6 +17,7 @@ class Track(models.Model):
 
 class TrackPoint(models.Model):
     uuid = models.CharField(max_length=50, primary_key=True)
+
     latitude = models.FloatField(max_length=50)
     longitude = models.FloatField(max_length=50)
     accurary = models.FloatField(max_length=50)
