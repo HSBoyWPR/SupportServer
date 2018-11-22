@@ -72,8 +72,17 @@
     left: 10px;
 }
 
+/*去除logo*/
+.anchorBL{
+    display:none;
+}
 
 /*轨迹表格*/
 #tb_track{
     margin: 5px;
+    color: white;
+}
+
+#track_attr{
+    color: white;
 }

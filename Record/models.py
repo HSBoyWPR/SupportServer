@@ -8,7 +8,6 @@ class User(models.Model):
     uname = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
 
-
 class Track(models.Model):
     uuid = models.CharField(max_length=50, primary_key=True)
     name = models.CharField(max_length=20)
