@@ -3,7 +3,7 @@ $(function () {
     bindEvent();
     initView();
 
-    let map= myMap.init('mapContainer');
+    let map = myMap.init('mapContainer');
 
     function bindEvent() {
         $("#li_trackSearch").click(function () {
@@ -44,17 +44,23 @@ $(function () {
     }
 
     function trackClick(e) {
-        let tk_id=$(e.currentTarget).attr('tk_id');
-        Utils.AjaxLoadData(Conf.Url.getPointsByTkID,{"tk_id":tk_id},function (data) {
-           if (data.status == 1) {
-               let arr=data.data;
-               let points=[];
-               for (let p of arr) {
-                   points.push(new BMap.Point(p['longitude'],p['latitude']))
-               }
+        let tk_id = $(e.currentTarget).attr('tk_id');
+        Utils.AjaxLoadData(Conf.Url.getPointsByTkID, {"tk_id": tk_id}, function (data) {
+            if (data.status == 1) {
+                setTimeout(function () {
+                    Utils.loadListToTable('#track_attr', data.data, ['longitude', 'latitude', 'accurary'],true);
+                      $("#track_attr tr").not(':eq(0)').click(pointsClick);
+                }, 1);
+                let arr = data.data;
+                let points = [];
+                for (let p of arr) {
+                    points.push(new BMap.Point(p['longitude'], p['latitude']))
+                }
 
-               myMap.drawArrowLine(map,points);
-           }
+                myMap.drawArrowLine(map, points);
+            }
         });
     }
+
+    Sys.Status.changeStatus({t: '就绪', s: 'suc'})
 });

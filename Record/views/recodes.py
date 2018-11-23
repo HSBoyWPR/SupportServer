@@ -22,7 +22,7 @@ def getPointsByTkID(req):
     tkID = req.GET.get('tk_id')
     result = {"status": 0, "data": [], "message": ""}
     if tkID:
-        points = models.TrackPoint.objects.filter(tk__uuid=tkID).values("longitude","latitude")
+        points = models.TrackPoint.objects.filter(tk__uuid=tkID).values("longitude", "latitude", 'accurary')
         if len(points) > 0:
             result['status'] = 1
             result['data'] = list(points)
@@ -31,4 +31,4 @@ def getPointsByTkID(req):
     else:
         result['message'] = "tk_id不正确"
 
-    return HttpResponse(json.dumps(result,ensure_ascii=False), content_type="application/json",charset="gbk")
+    return HttpResponse(json.dumps(result, ensure_ascii=False), content_type="application/json", charset="gbk")

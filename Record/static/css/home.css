@@ -2,8 +2,30 @@
     background-color: #00b0ce;
     color: white;
 }
-.navbar{
+
+.navbar {
     margin-bottom: 5px;
+    border: 0;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top: 4px !important;
+    padding-bottom: 0 !important;
+    height: 28px;
+}
+
+.navbar {
+    min-height: 28px !important;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #b1b500;
+}
+
+.div-border {
+    border: 1px solid #0fea0f;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .left-li-item {
@@ -55,34 +77,34 @@
 
 }
 
-#bottom span{
-     font-size: 12px;
+#bottom span {
+    font-size: 12px;
     margin-left: 5px;
 }
 
-#content{
+#content {
     /*border: 1px solid red;*/
     /*height: 100%;*/
     /*width: 100%;*/
 }
 
-#left_expand{
+#left_expand {
     position: absolute;
     top: 50%;
     left: 10px;
 }
 
 /*去除logo*/
-.anchorBL{
-    display:none;
+.anchorBL {
+    display: none;
 }
 
 /*轨迹表格*/
-#tb_track{
+#tb_track {
     margin: 5px;
     color: white;
 }
 
-#track_attr{
+#track_attr {
     color: white;
 }

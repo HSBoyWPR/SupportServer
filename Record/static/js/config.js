@@ -17,6 +17,14 @@ Conf.log={
     , default: false
 };
 
+Conf.Sys={
+    statusEmum:{
+        error:{t:"错误",s:"err"}
+        ,success:{t:"就绪",s:"suc"}
+        ,busying:{t:"处理中...",s:"wat"}
+    }
+};
+
 Conf.Url={
     getPointsByTkID:`${Conf.Server.address}:${Conf.Server.port}/record/data/getPointsByTkID/`
 };

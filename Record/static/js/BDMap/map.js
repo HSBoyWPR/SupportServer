@@ -12,6 +12,13 @@ myMap.init = (mapContainer) => {
     //添加地图控件
     map.addControl(new BMap.MapTypeControl());
     map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT}));// 左上角，添加比例尺
+
+    map.setMapStyle({style: "midnight"});
+
+    setTimeout(()=>{
+        myMap.getCurrentPosition(map);
+    }, 2000);
+
     return map;
 };
 
@@ -24,7 +31,7 @@ myMap.drawArrowLine = (map, pois) => {
     var icons = new BMap.IconSequence(sy, '10', '30');
     let polyline = new BMap.Polyline(pois, {
         enableEditing: false,//是否启用线编辑，默认为false
-        enableClicking: true,//是否响应点击事件，默认为true
+        enableClicking: false,//是否响应点击事件，默认为true
         icons: [icons],
         strokeWeight: '8',//折线的宽度，以像素为单位
         strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
@@ -33,3 +40,30 @@ myMap.drawArrowLine = (map, pois) => {
 
     map.addOverlay(polyline);
 }
+
+myMap.getCurrentPosition = (map) => {
+    Sys.Status.changeStatus({s: 'wat', t: '定位中...'})
+    let geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() === BMAP_STATUS_SUCCESS) {
+            let mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);
+
+
+
+            let t='当前位置: ';
+            for (let a in r.address){
+                if (r.address[a]) {
+                    t+=(r.address[a]+' ');
+                }
+            }
+            //r.address.province + ", " + r.address.city + ", " + r.address.district + ", " + r.address.street + ", " + r.address.streetNumber;
+            Sys.Status.changeStatus({s:'suc',t:t});
+        }
+        else {
+            Sys.Status.changeStatus({s: 'err', t: '定位失败' + this.getStatus()})
+        }
+
+    }, {enableHighAccuracy: true})
+};
